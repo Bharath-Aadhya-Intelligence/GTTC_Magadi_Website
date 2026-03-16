@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Placements | GTTC Magadi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="website icon" type="png" href="../Main_Page_Images/karnataka_logo-removebg-preview - Copy (2).png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .placement-container {
+            max-width: 1300px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .search-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        #searchInput {
+            padding: 12px 20px;
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        #searchInput:focus {
+            border-color: #003366;
+            outline: none;
+        }
+
+        .slide-containar {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eee;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-content {
+            padding: 30px;
+            background: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        .card-img {
+            max-width: 180px;
+            max-height: 120px;
+            object-fit: contain;
+        }
+
+        .card-content {
+            padding: 25px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name {
+            font-size: 1.25rem;
+            color: #003366;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .view-btn {
+            background: #003366;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .view-btn:hover {
+            background: #cc0000;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #003366;
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        .page-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #cc0000;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Accessibility Bar -->
+    <div class="top-bar">
+        <div class="left-links">
+            <a href="#">Government of Karnataka</a>
+            <a href="#">ಕನ್ನಡ</a>
+        </div>
+        <div class="right-controls">
+            <span class="btn-acc" id="font-decrease">A-</span>
+            <span class="btn-acc" id="font-reset">A</span>
+            <span class="btn-acc" id="font-increase">A+</span>
+            <a href="#main-content" style="margin-left: 10px;">Skip to Main Content</a>
+        </div>
+    </div>
+
+    <!-- Brand Header -->
+    <header class="brand-header">
+        <div class="logo-container">
+            <img src="../Main_Page_Images/karnataka_logo-removebg-preview - Copy (2).png" alt="Karnataka Govt Logo">
+        </div>
+        <div class="title-container">
+            <h1>Government Tool Room and Training Centre</h1>
+            <h2>GTTC Magadi - STU 36</h2>
+        </div>
+        <div class="logo-container">
+            <img src="../Main_Page_Images/magdi_logo-removebg-preview - Copy - Copy.png" alt="GTTC Magadi Logo">
+            <img src="../Main_Page_Images/kaushalya-karnataka.png" alt="Kaushalya Karnataka">
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <div id="nav-toggle">
+            <i class="fas fa-bars"></i> MENU
+        </div>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li>
+                <a href="#">Admission <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                <ul>
+                    <li><a href="Courses Details.html">Courses Details</a></li>
+                    <li><a href="Apply Now.html">Apply Now</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Academics <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                <ul>
+                    <li><a href="../Department_DTDM.html">DTDM</a></li>
+                    <li><a href="../Department_DMCH.html">DMCH</a></li>
+                    <li><a href="../Department_DEEE.html">DEEE</a></li>
+                    <li><a href="../Department_DAIML.html">DAIML</a></li>
+                    <li><a href="../examination.html">Examination</a></li>
+                </ul>
+            </li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="Placements.html">Placements</a></li>
+            <li><a href="Amenities.html">Amenities</a></li>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content" class="placement-container">
+        <h2 class="page-title">Placement Partners</h2>
+
+        <div class="search-section">
+            <input type="text" id="searchInput" placeholder="Search companies..." oninput="filterCards()">
+        </div>
+
+        <div class="slide-containar">
+
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/IFB.png" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">Indian Fine Blanks (IFB)</h2>
+                    <p class="description">IFB was founded in 1974 in collaboration with Hienrich Schmid AG of
+                        Switzerland.
+                        The company was originally called Indian Fine Blanks Limited.
+                        The name was later changed to IFB Industries Ltd. </p>
+
+                    <a href="https://www.ifbappliances.com" target="_blank"><button class="button">View
+                            More</button></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/TATA.png" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">TATA</h2>
+                    <p class="description">The Tata Group is an Indian group of companies headquartered in Mumbai.
+                        Established in 1868, it is India's largest business conglomerate, with products and services in
+                        over 160 countries, and operations in 100 countries.</p>
+
+                    <a href="https://www.tata.com/"><button class="button">View More</button></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/ASK.png" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">ASK Automotive Limited</h2>
+                    <p class="description">ASK was started in 1972 by Sandra Kurtzig in California. She left her job as
+                        a marketing specialist at General Electric and invested $2,000 of her savings to start the
+                        company in the apartment she shared with her HP salesman husband</p>
+
+                    <a href="https://en.wikipedia.org/wiki/ASK_Group"><button class="button">View More</button></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/INDO-MIM.png" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">INDO-MIM Limited</h2>
+                    <p class="description">INDO-MIM Limited is a globally recognized leader in Metal Injection Molding
+                        (MIM) and Precision Manufacturing solutions. Founded in 1996 and headquartered in Bengaluru</p>
+
+                    <a href="https://www.indo-mim.com/"><button class="button">View More</button></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/JBM.jpeg" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">JAY BHARAT MARUTI (JBM)</h2>
+                    <p class="description">Our journey began nearly four decades ago, in 1983, as we started
+                        manufacturing cylinders. Soon after, as the world witnessed a technological boom, our founder
+                        had a vision – “JBM inside”. </p>
+
+                    <a href="https://www.jbmgroup.com/"><button class="button">View More</button></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/WIPRO.png" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">WIPRO</h2>
+                    <p class="description">Wipro Limited is a leading global IT, consulting, and business process
+                        services company, known for its comprehensive portfolio and focus on digital transformation,
+                        with a strong presence in India and operations across 66 countries. </p>
+
+                    <a href="https://www.wipro.com/"><button class="button">View More</button></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/badve group.png" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">BADVE GROUP</h2>
+                    <p class="description">Established in the year 1988, Belrise Industries specializes in component
+                        manufacturing for Automotive & White Goods Industries. Mirror systems specifically for
+                        Two-Wheeler, Three-Wheeler and Four-Wheeler Passenger and Commercial vehicles.</p>
+
+                    <a href="https://belriseindustries.com/"><button class="button">View More</button></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/MARCOPOLO.jpeg" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">MARCOPOLO</h2>
+                    <p class="description">Marcopolo is a company with two main entities: Marcopolo Products Pvt. Ltd.
+                        (a rapid prototyping and manufacturing company based in Pune, India) and Marcopolo S.A. (a bus
+                        body manufacturing company based in Brazil).Marcopolo is a company with two main entities </p>
+
+                    <a href="https://www.marc-o-polo.com/en-in"><button class="button">View More</button></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/INTERPLEX.jpeg" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">INTERPLEX</h2>
+                    <p class="description">Interplex is a world-class business dedicated to providing best-fit
+                        customized interconnect solutions. Leveraging our extensive technical expertise, vertically
+                        integrated manufacturing capabilities and global footprint enable us to quickly and
+                        cost-effectively solve complex customer problems.</p>
+
+                    <a href="https://interplex.com/"><button class="button">View More</button></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/MOLEX.png" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">MOLEX</h2>
+                    <p class="description">Molex LLC, a subsidiary of Koch Industries, is a global electronics leader
+                        specializing in interconnect solutions, offering products like connectors, cables, and sensors
+                        for various industries, including automotive, data centers, and healthcare. </p>
+
+                    <a href="https://www.molex.com/en-us/home"><button class="button">View More</button></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/INTEL.png" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">INTEL</h2>
+                    <p class="description">Intel Corporation (INTC), an American multinational technology company,
+                        designs, manufactures, and sells computer components like CPUs and related products, and is a
+                        major player in the semiconductor industry, headquartered in Santa Clara, California. </p>
+
+                    <a href="https://www.intel.com/content/www/us/en/homepage.html"><button class="button">View
+                            More</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/TOYOTA.png" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">TOYOTA</h2>
+                    <p class="description">Toyota Motor Corp., Largest Japanese automobile manufacturer and one of the
+                        largest automotive companies in the world. It was established in 1933 as a division of the
+                        Toyoda Automatic Loom Works, Ltd., and in 1937 it was incorporated as the Toyota Motor Co., Ltd
+                    </p>
+
+                    <a href="https://www.toyotabharat.com/"><button class="button">View More</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/TVS.png" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">TVS</h2>
+                    <p class="description">TVS Motor Company is an Indian multinational motorcycle manufacturer
+                        headquartered in Chennai. It is the third-largest motorcycle company in India by revenue. The
+                        company has annual sales of three million units and an annual production capacity of over four
+                        million vehicles.</p>
+
+                    <a href="https://www.tvsmotor.com/"><button class="button">View More</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/VOLVO.jpeg" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">VOLVO</h2>
+                    <p class="description">Volvo Group, founded in 1927 and headquartered in Gothenburg, Sweden, is a
+                        global leader in commercial transport solutions, specializing in trucks, buses, construction
+                        equipment, and marine/industrial power solutions, with a focus on sustainable transport and
+                        infrastructure. </p>
+
+                    <a href="https://www.volvocars.com/"><button class="button">View More</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/GAYATRI.jpeg" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">GAYATRI TOOL SOLUTIONS</h2>
+                    <p class="description">It is a pleasure to introduce ourselves as a custom plastic injection mould
+                        making company that also offers product design & development, mould design, manufacturing and
+                        injection molding facilities to the houseware, automotive, consumer, electronic and IT
+                        industries</p>
+
+                    <a href="http://www.gayatritoolingsolutions.com/"><button class="button">View More</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/AEQUS.png" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">AEQUS ECOSYSTEM OF EFFICIENCY</h2>
+                    <p class="description">Aequs is a contract manufacturing company with an "ecosystem of efficiency"
+                        that delivers integrated capabilities for increased customer value, focusing on aerospace, toys,
+                        and consumer durables, with a global footprint. </p>
+
+                    <a href="https://www.aequs.com/"><button class="button">View More</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/BANDO.png" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">BANDO CHEMICAL INDUSTRIES</h2>
+                    <p class="description">Bando has grown to become a global supplier of power transmission belts and
+                        conveyor belts, based on our rubber and elastomer processing technologies. Our history of
+                        pioneering spirit dates back to the Meiji Era in Japan.</p>
+
+                    <a href="https://products.bandogrp.com/en/"><button class="button">View More</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/SHIVAM.png" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">SHIVAM AUTOTECH Pvt.Ltd</h2>
+                    <p class="description">Shivam Autotech Limited is a leading Indian manufacturer of transmission
+                        gears and shafts, serving automobile manufacturers for over 24 years, with headquarters in
+                        Gurugram and operations across India. </p>
+
+                    <a href="https://www.shivamautotech.com/"><button class="button">View More</button></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/lumax.png" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">LUMAX</h2>
+                    <p class="description">Today, Lumax is a leading manufacturer and supplier of automotive components
+                        and systems in India with a brand revenue of Rs 8434 crores (FY2024). The Lumax-DK Jain Group is
+                        one of the pioneers and leading business houses in the Indian Automotive Industry.</p>
+
+                    <a href="https://www.lumaxworld.in/overview.html"><button class="button">View More</button></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/APEX AUTO LIMITED.jpeg" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">APEX AUTO LIMITED</h2>
+                    <p class="description">Apex is the largest Indian manufacturer of finished fabricated structures to
+                        the earth-moving and construction equipment industry in India. We are presently manufacturing
+                        components for top selling excavators back hoe loaders, cranes, compactors, transit mixers.</p>
+
+                    <a href="https://apexautoltd.com/"><button class="button">View More</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/ASHOK IRON GROUP.png" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">ASHOK IRON GROUP</h2>
+                    <p class="description">Ashok Iron Group was founded in 1974 by our visionary leader Mr. Ashok
+                        Humbarwadi. Ashok Iron Group has grown from strength to strength owing to the technology,
+                        innovation, quality products & customer service. Ashok Iron Group is the one of the largest
+                        foundry groups in the world.</p>
+
+                    <a href="https://ashokiron.com/"><button class="button">View More</button></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image-content">
+                    <span class="overlay"></span>
+                    <div class="card-image">
+                        <img src="images/TECOSIM.png" alt="" class="card-img">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="name">TECOSIM</h2>
+                    <p class="description">At TECOSIM, we’re proud of our history – over 30 years of engineering
+                        solutions world’s apart from our competitors. From the conception of the company in Germany,
+                        1992, to becoming an internationally recognised, multi award-winning organisation, we are
+                        delighted with where we are today.</p>
+
+                    <a href="https://tecosim.com/in/"><button class="button">View More</button></a>
+                </div>
+            </div>
+
+            <!-- Add more cards here -->
+        </div>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About GTTC</h3>
+                    <p>Government Tool Room and Training Centre (GTTC) was established in 1972 with the participation of
+                        the
+                        Karnataka State Government and the Government of Denmark.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="Courses Details.html">Courses</a></li>
+                        <li><a href="ContactUs.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Sy. No 21 Chikkakalya Village, Thippsandra Hobli,
+                            Magadi Taluk,
+                            Ramanagara Dist - 562131</p>
+                        <p><i class="fas fa-phone"></i> +91 9379853899</p>
+                        <p><i class="fas fa-envelope"></i> gttcmagadi@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Government Tool Room and Training Centre, Magadi. All Rights Reserved.</p>
+            </div>
+        </footer>
+
+</html>

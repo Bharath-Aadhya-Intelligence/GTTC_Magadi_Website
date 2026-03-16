@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Other Services | GTTC Magadi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="website icon" type="png" href="../Main_Page_Images/karnataka_logo-removebg-preview - Copy (2).png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .others-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            border-top: 5px solid #003366;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .service-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4));
+        }
+
+        .service-content {
+            padding: 25px;
+            flex-grow: 1;
+        }
+
+        .service-card h3 {
+            color: #003366;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .view-more-btn {
+            display: inline-block;
+            background: #cc0000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .view-more-btn:hover {
+            background: #003366;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Accessibility Bar -->
+    <div class="top-bar">
+        <div class="left-links">
+            <a href="#">Government of Karnataka</a>
+            <a href="#">ಕನ್ನಡ</a>
+        </div>
+        <div class="right-controls">
+            <span class="btn-acc" id="font-decrease">A-</span>
+            <span class="btn-acc" id="font-reset">A</span>
+            <span class="btn-acc" id="font-increase">A+</span>
+            <a href="#main-content" style="margin-left: 10px;">Skip to Main Content</a>
+        </div>
+    </div>
+
+    <!-- Brand Header -->
+    <header class="brand-header">
+        <div class="logo-container">
+            <img src="../Main_Page_Images/karnataka_logo-removebg-preview - Copy (2).png" alt="Karnataka Govt Logo">
+        </div>
+        <div class="title-container">
+            <h1>Government Tool Room and Training Centre</h1>
+            <h2>GTTC Magadi - STU 36</h2>
+        </div>
+        <div class="logo-container">
+            <img src="../Main_Page_Images/magdi_logo-removebg-preview - Copy - Copy.png" alt="GTTC Magadi Logo">
+            <img src="../Main_Page_Images/kaushalya-karnataka.png" alt="Kaushalya Karnataka">
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <div id="nav-toggle" style="display: none; padding: 15px; cursor: pointer;">
+            <i class="fas fa-bars"></i> MENU
+        </div>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li>
+                <a href="#">Admission <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                <ul>
+                    <li><a href="Courses Details.html">Courses Details</a></li>
+                    <li><a href="Apply Now.html">Apply Now</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Academics <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                <ul>
+                    <li><a href="../Department_DTDM.html">DTDM</a></li>
+                    <li><a href="../Department_DMCH.html">DMCH</a></li>
+                    <li><a href="../Department_DEEE.html">DEEE</a></li>
+                    <li><a href="../Department_DAIML.html">DAIML</a></li>
+                    <li><a href="../examination.html">Examination</a></li>
+                </ul>
+            </li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="Placements.html">Placements</a></li>
+            <li><a href="Amenities.html">Amenities</a></li>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content" class="others-container">
+        <h2 class="section-title">Other Specialized Services</h2>
+
+        <div class="services-grid">
+            <!-- Short Term Courses -->
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('images/SHORT TERM 3.jpg');"></div>
+                <div class="service-content">
+                    <h3>Short Term Courses</h3>
+                    <p>Skill development programs for ITI, Diploma, and B.E students focusing on niche technical areas
+                        and industry ready skills.</p>
+                    <a href="Short_Term_Course.html" class="view-more-btn">View Details</a>
+                </div>
+            </div>
+
+            <!-- World Skill -->
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('images/worldskill.png');"></div>
+                <div class="service-content">
+                    <h3>World Skill</h3>
+                    <p>Training and participation details for the prestigious World Skills competition, showcasing
+                        excellence in vocational training.</p>
+                    <a href="#" class="view-more-btn">Learn More</a>
+                </div>
+            </div>
+
+            <!-- PMKKY -->
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('images/pmkkky.jpg');"></div>
+                <div class="service-content">
+                    <h3>PMKKY</h3>
+                    <p>Pradhan Mantri Kaushal Kendra Yojna programs aimed at empowering youth with market-driven skills
+                        for better livelihoods.</p>
+                    <a href="#" class="view-more-btn">View Scheme</a>
+                </div>
+            </div>
+
+            <!-- Students Projects -->
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('../gttc1.jpeg');"></div>
+                <div class="service-content">
+                    <h3>Students Projects</h3>
+                    <p>Showcasing innovative projects developed by our students, blending theoretical knowledge with
+                        practical engineering solutions.</p>
+                    <a href="#" class="view-more-btn">View Projects</a>
+                </div>
+            </div>
+
+            <!-- Production -->
+            <div class="service-card">
+                <div class="service-img" style="background-image: url('../gttc1.jpeg');"></div>
+                <div class="service-content">
+                    <h3>Production Services</h3>
+                    <p>GTTC's industrial production wing providing precision engineering services, tooling solutions,
+                        and component manufacturing.</p>
+                    <a href="#" class="view-more-btn">Our Capability</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About GTTC</h3>
+                <p>Government Tool Room and Training Centre (GTTC) was established in 1972 with the participation of the
+                    Karnataka State Government and the Government of Denmark.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="Courses Details.html">Courses</a></li>
+                    <li><a href="ContactUs.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Sy. No 21 Chikkakalya Village, Thippsandra Hobli, Magadi Taluk,
+                    Ramanagara Dist - 562131</p>
+                <p style="margin-top: 10px;"><i class="fas fa-phone"></i> +91 9379853899</p>
+                <p style="margin-top: 10px;"><i class="fas fa-envelope"></i> gttcmagadi@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Government Tool Room and Training Centre, Magadi. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

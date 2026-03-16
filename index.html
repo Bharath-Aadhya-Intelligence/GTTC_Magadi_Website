@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GTTC Magadi | Government Tool Room & Training Centre</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="website icon" type="png" href="Main_Page_Images/karnataka_logo-removebg-preview - Copy (2).png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Top Accessibility Bar -->
+    <div class="top-bar">
+        <div class="left-links">
+            <a href="#">Government of Karnataka</a>
+            <a href="#">ಕನ್ನಡ</a>
+        </div>
+        <div class="right-controls">
+            <span class="btn-acc" id="font-decrease" title="Decrease Font Size">A-</span>
+            <span class="btn-acc" id="font-reset" title="Reset Font Size">A</span>
+            <span class="btn-acc" id="font-increase" title="Increase Font Size">A+</span>
+            <a href="#main-content" style="margin-left: 10px;">Skip to Main Content</a>
+        </div>
+    </div>
+
+    <!-- Brand Header -->
+    <header class="brand-header">
+        <div class="logo-container">
+            <img src="Main_Page_Images/karnataka_logo-removebg-preview - Copy (2).png" alt="Karnataka Govt Logo">
+        </div>
+        <div class="title-container">
+            <h1>Government Tool Room and Training Centre</h1>
+            <h2>GTTC Magadi - STU 36</h2>
+        </div>
+        <div class="logo-container">
+            <img src="Main_Page_Images/magdi_logo-removebg-preview - Copy - Copy.png" alt="GTTC Magadi Logo">
+            <img src="Main_Page_Images/kaushalya-karnataka.png" alt="Kaushalya Karnataka">
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <div id="nav-toggle">
+            <i class="fas fa-bars"></i> MENU
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Web_Pages/About.html">About Us</a></li>
+            <li>
+                <a href="#">Admission <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                <ul>
+                    <li><a href="Web_Pages/Courses Details.html">Courses Details</a></li>
+                    <li><a href="Web_Pages/Apply Now.html">Apply Now</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Academics <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                <ul>
+                    <li><a href="Department_DTDM.html">DTDM</a></li>
+                    <li><a href="Department_DMCH.html">DMCH</a></li>
+                    <li><a href="Department_DEEE.html">DEEE</a></li>
+                    <li><a href="Department_DAIML.html">DAIML</a></li>
+                    <li><a href="examination.html">Examination</a></li>
+                </ul>
+            </li>
+            <li><a href="Web_Pages/Gallery.html">Gallery</a></li>
+            <li><a href="Web_Pages/Placements.html">Placements</a></li>
+            <li><a href="Web_Pages/Amenities.html">Amenities</a></li>
+            <li><a href="Web_Pages/ContactUs.html">Contact Us</a></li>
+            <li><a href="Web_Pages/ContactUs.html">Others</a></li>
+        </ul>
+    </nav>
+
+    <!-- News Ticker -->
+    <div class="top-header"
+        style="background: var(--primary-color); padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.1);">
+        <div class="container"
+            style="max-width: 1240px; margin: 0 auto; display: flex; align-items: center; color: white; padding: 0 20px;">
+            <span
+                style="background: var(--secondary-color); color: var(--primary-color); padding: 5px 15px; font-weight: bold; border-radius: 4px; margin-right: 20px; white-space: nowrap;">LATEST
+                NEWS</span>
+            <marquee onmouseover="this.stop();" onmouseout="this.start();" style="flex-grow: 1; font-weight: 500;">
+                Welcome to GTTC Magadi. Admissions are open for the academic year 2024-25. <a
+                    href="Web_Pages/Apply Now.html"
+                    style="color: var(--secondary-color); text-decoration: underline;">Apply Now</a> | Skill training
+                programs for the future!
+            </marquee>
+        </div>
+    </div>
+
+    <main id="main-content">
+
+
+
+        <style>
+            .video-section {
+                position: relative;
+                background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('gttc1.jpeg');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                padding: 60px 20px;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .video-section-title {
+                color: var(--secondary-color);
+                text-align: center;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 35px;
+                font-weight: 600;
+                margin-bottom: 40px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+
+            .video-grid {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                max-width: 1200px;
+                width: 100%;
+            }
+
+            .video-side-text {
+                flex: 1;
+                font-size: 22px;
+                font-weight: 500;
+                text-transform: uppercase;
+                line-height: 1.4;
+                text-align: center;
+                color: #fff;
+            }
+
+            .video-middle {
+                flex: 1.5;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .video-middle video {
+                width: 100%;
+                max-width: 500px;
+                border-radius: 12px;
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+                border: 2px solid rgba(255, 255, 255, 0.1);
+            }
+
+            @media (max-width: 992px) {
+                .video-grid {
+                    flex-direction: column;
+                    gap: 30px;
+                }
+
+                .video-side-text {
+                    font-size: 18px;
+                }
+
+                .video-section-title {
+                    font-size: 28px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .video-section-title {
+                    font-size: 24px;
+                }
+
+                .video-side-text {
+                    font-size: 16px;
+                }
+            }
+        </style>
+
+        <section class="video-section">
+            <h2 class="video-section-title">SHORT CLIP ON GTTC MAGADI</h2>
+
+            <div class="video-grid">
+                <div class="video-side-text">
+                    A GOOD EDUCATION IS A FOUNDATION FOR A BETTER FUTURE.
+                </div>
+
+                <div class="video-middle">
+                    <video controls>
+                        <source src="COLLAGE CLIP_1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <div class="video-side-text">
+                    THE FUTURE BELONGS TO THOSE WHO LEARN MORE SKILLS AND COMBINE THEM IN CREATIVE WAYS.
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Disclaimer</h3>
+                    <p>Please note also provides links to the websites / web pages of Govt.
+                        Ministries/Departments/Organisations. The content of these websites are owned by the respective
+                        organisations and they may be contacted for any further information or suggestion.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Website Policies</h3>
+                    <ul class="footer-links">
+                        <li class="policies" data-policy-type="copyright" style="cursor: pointer;">Copyright Policy</li>
+                        <li class="policies" data-policy-type="hyperlinking" style="cursor: pointer;">Hyperlinking
+                            Policy</li>
+                        <li class="policies" data-policy-type="security" style="cursor: pointer;">Security Policy</li>
+                        <li class="policies" data-policy-type="terms" style="cursor: pointer;">Terms & Conditions</li>
+                        <li class="policies" data-policy-type="privacy" style="cursor: pointer;">Privacy Policy</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <a href="Web_Pages/Map.html" style="color: inherit; text-decoration: none;">
+                            <p><i class="fas fa-map-marker-alt"></i> Sy. No 21 Chikkakalya Village, Thippsandra Hobli,
+                                Magadi Taluk, Ramanagara Dist - 562131</p>
+                        </a>
+                        <p><i class="fas fa-phone"></i> +91 9379853899</p>
+                        <p><i class="fas fa-envelope"></i> gttcmagadi@gmail.com</p>
+                    </div>
+                    <div class="social-icons" style="margin-top: 20px;">
+                        <a href="https://www.facebook.com/share/1NJKVhcLfK/" target="_blank" title="Facebook"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/gttc_magadi?utm_source=qr&igsh=ZndxcnFkbTF0ZWNz"
+                            target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com" target="_blank" title="YouTube"><i
+                                class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="footer-actions" style="margin-top: 20px;">
+                        <a href="Web_Pages/Notes_Page.html" class="footer-btn">Downloads</a>
+                        <a href="Web_Pages/FeedBack.html" class="footer-btn">Feedback</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Magadi STU-36 - Government Tool Room & Training Centre | All Rights Reserved</p>
+            </div>
+        </footer>
+
+
+        <!-- Pamphlet (Pop-up) -->
+        <div class="pamphlet" id="pamphlet"
+            style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10001; background: white; padding: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.5); border-radius: 8px;">
+            <span
+                style="position: absolute; top: -15px; right: -15px; background: var(--accent-color); color: white; width: 30px; height: 30px; border-radius: 50%; text-align: center; line-height: 30px; cursor: pointer; font-weight: bold;"
+                onclick="this.parentElement.style.display='none'">&times;</span>
+            <img src="Main_Page_Images/Pamphlet_Image.jpg" alt="Admission Pamphlet"
+                style="max-width: 90vw; max-height: 80vh;">
+        </div>
+
+        <!-- Policy Modal -->
+        <div id="policyModal" class="modal"
+            style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 10002;">
+            <div class="modal-content"
+                style="background: white; margin: 10% auto; padding: 30px; max-width: 800px; border-radius: 8px; position: relative;">
+                <span class="close-button"
+                    style="position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer;">&times;</span>
+                <h2 id="modalTitle"
+                    style="color: var(--primary-color); border-bottom: 2px solid var(--secondary-color); padding-bottom: 10px; margin-bottom: 20px;">
+                </h2>
+                <div id="editableContent" style="max-height: 60vh; overflow-y: auto; line-height: 1.8;"></div>
+            </div>
+        </div>
+
+        <script src="js/main.js"></script>
+        <script>
+            // Site specific logic
+            document.addEventListener('DOMContentLoaded', () => {
+                // Show pamphlet on load
+                setTimeout(() => {
+                    const pamphlet = document.getElementById('pamphlet');
+                    if (pamphlet) pamphlet.style.display = 'block';
+                }, 1000);
+
+                // Policy Modal Logic
+                const policyLinks = document.querySelectorAll('.policies');
+                const policyModal = document.getElementById('policyModal');
+                const closeBtn = document.querySelector('.close-button');
+                const modalTitle = document.getElementById('modalTitle');
+                const editableContent = document.getElementById('editableContent');
+
+                const policyContents = {
+                    copyright: { title: "Copyright Policy", content: "<p>All content on this website is protected by copyright law of Government of Karnataka.</p>" },
+                    hyperlinking: { title: "Hyperlinking Policy", content: "<p>Links to external websites are provided for convenience only.</p>" },
+                    security: { title: "Security Policy", content: "<p>We take all necessary measures to ensure the security of your data.</p>" },
+                    terms: { title: "Terms & Conditions", content: "<p>By using this website, you agree to comply with our terms of use.</p>" },
+                    privacy: { title: "Privacy Policy", content: "<p>Your privacy is important to us. We do not share your personal information with third parties without consent.</p>" }
+                };
+
+                policyLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const type = link.dataset.policyType;
+                        modalTitle.textContent = policyContents[type].title;
+                        editableContent.innerHTML = policyContents[type].content;
+                        policyModal.style.display = 'block';
+                    });
+                });
+
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', () => { policyModal.style.display = 'none'; });
+                }
+
+                window.addEventListener('click', (e) => {
+                    if (e.target === policyModal) policyModal.style.display = 'none';
+                });
+            });
+        </script>
+</body>
+
+</html>
