@@ -21,109 +21,265 @@
   <style>
     /* Gallery specific styles */
     .gallery-main {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
+      max-width: 1400px;
+      margin: 60px auto;
+      padding: 0 30px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #003366;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #003366, #cc0000);
+      border-radius: 2px;
     }
 
     #filter-bar {
       display: flex;
       justify-content: center;
-      margin-bottom: 30px;
-      gap: 12px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      gap: 15px;
       flex-wrap: wrap;
     }
 
-    #filter-bar button {
-      background: #eee;
-      border: none;
-      padding: 8px 16px;
+    .filter-btn {
+      background: white;
+      border: 2px solid #eef2f7;
+      padding: 10px 25px;
       font-weight: 600;
-      border-radius: 20px;
+      border-radius: 30px;
       cursor: pointer;
-      color: #006699;
-      transition: all 0.3s ease;
+      color: #555;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
     }
 
-    #filter-bar button.active,
-    #filter-bar button:hover {
-      background: #006699;
+    .filter-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+      border-color: #003366;
+      color: #003366;
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, #003366, #00509e);
       color: white;
+      border-color: #003366;
+      box-shadow: 0 10px 20px rgba(0, 51, 102, 0.2);
     }
 
-    /* Gallery grid */
+    /* Gallery Grid */
     #gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    #gallery img {
+      columns: 4 300px;
+      column-gap: 25px;
       width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 12px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 25px;
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s ease;
+      background: #fcfcfd;
+      animation: fadeInUp 0.5s ease backwards;
     }
 
-    #gallery img:hover {
-      transform: scale(1.03);
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Lightbox modal */
+    .gallery-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      z-index: 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      transition: all 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+      filter: brightness(0.8) blur(1px);
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 51, 102, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .zoom-icon {
+      color: white;
+      font-size: 2.5rem;
+      transform: translateY(20px);
+      transition: all 0.4s ease;
+    }
+
+    .gallery-item:hover .zoom-icon {
+      transform: translateY(0);
+    }
+
+    /* Lightbox Modal Stylized */
     #lightbox {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(0, 0, 0, 0.95);
       display: none;
       justify-content: center;
       align-items: center;
-      z-index: 9999;
+      z-index: 10000;
+      backdrop-filter: blur(10px);
+      flex-direction: column;
     }
 
     #lightbox.active {
       display: flex;
+      animation: modalFadeIn 0.3s forwards;
     }
 
-    #lightbox img {
+    @keyframes modalFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .lightbox-content {
+      position: relative;
       max-width: 90%;
-      max-height: 80%;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #lightbox-img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 12px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+      transform-origin: center;
+      transition: transform 0.3s ease;
     }
 
     #close-btn {
       position: absolute;
-      top: 20px;
-      right: 30px;
-      color: white;
-      font-size: 40px;
+      top: -50px;
+      right: 0;
+      background: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       cursor: pointer;
-      background: none;
+      color: #333;
+      font-size: 1.2rem;
+      transition: all 0.3s;
       border: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
-    #caption {
-      position: absolute;
-      bottom: 20px;
+    #close-btn:hover {
+      background: #ff4757;
       color: white;
-      font-weight: 600;
+      transform: rotate(90deg);
+    }
+
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: none;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      transition: all 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    #prev-btn { left: -80px; }
+    #next-btn { right: -80px; }
+
+    #caption {
+      margin-top: 25px;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px 25px;
+      border-radius: 30px;
+      backdrop-filter: blur(5px);
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      #gallery { columns: 3; }
+      #prev-btn { left: 10px; }
+      #next-btn { right: 10px; }
+      .nav-btn { width: 45px; height: 45px; font-size: 1.2rem; }
     }
 
     @media (max-width: 768px) {
-      #gallery {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 15px;
-      }
+      #gallery { columns: 2; }
+      .gallery-main { padding: 0 20px; margin: 40px auto; }
+      .section-title { font-size: 2rem; }
+      #close-btn { top: -60px; right: 10px; }
+      #caption { font-size: 1rem; width: 80%; }
+    }
 
-      #gallery img {
-        height: 150px;
-      }
+    @media (max-width: 480px) {
+      #gallery { columns: 1; }
+      .filter-btn { padding: 8px 18px; font-size: 0.9rem; }
     }
   </style>
 </head>
@@ -199,57 +355,131 @@
       <button class="filter-btn" data-filter="students" aria-pressed="false">Students</button>
     </section>
     <section id="gallery" aria-label="College image gallery">
-      <!-- Images with categories assigned -->
-      <img src="Gallery_Images/College Photo 1.jpg" alt="College campus building" tabindex="0" data-category="campus" />
-
-      <img src="Gallery_Images/Assembly photo.jpg" alt="Morning Assembly" tabindex="0" data-category="students" />
-      <img src="Gallery_Images/Assembly photo1.jpg" alt="Morning Assembly" tabindex="0" data-category="students" />
-      <img src="Gallery_Images/Assembly photo2.jpg" alt="Morning Assembly" tabindex="0" data-category="students" />
-
-
-      <img src="Gallery_Images/Cultural college event 5.jpg" alt="College event" tabindex="0" data-category="events" />
-      <img src="Gallery_Images/Appu Sir Birthday.jpg" alt="Appu Sir Birthday " tabindex="0" data-category="events" />
-      <img src="Gallery_Images/College events.jpg" alt="College event " tabindex="0" data-category="events" />
-      <img src="Gallery_Images/College festival event.JPG" alt="College event " tabindex="0" data-category="events" />
-      <img src="Gallery_Images/College festival event1.JPG" alt="College event " tabindex="0" data-category="events" />
-      <img src="Gallery_Images/Cultural college event 6.jpg" alt="College event " tabindex="0" data-category="events" />
-      <img src="Gallery_Images/Cultural college event 7.jpg" alt="College event " tabindex="0" data-category="events" />
-      <img src="Gallery_Images/Cultural college event.jpg" alt="College event " tabindex="0" data-category="events" />
-      <img src="Gallery_Images/Cultural college event1.jpg" alt="College event " tabindex="0" data-category="events" />
-      <img src="Gallery_Images/Cultural college event2.jpg" alt="College event " tabindex="0" data-category="events" />
-      <img src="Gallery_Images/Cultural college event3.jpg" alt="College event " tabindex="0" data-category="events" />
-      <img src="Gallery_Images/Cultural college event4.jpg" alt="College event " tabindex="0" data-category="events" />
-
-
-      <img src="Gallery_Images/College Main Door.jpg" alt="College Main Door" tabindex="0" data-category="campus" />
-      <img src="Gallery_Images/Workshop photo 2.jpg" alt="Workshop" tabindex="0" data-category="campus" />
-      <img src="Gallery_Images/Workshop photo.jpg" alt="Workshop " tabindex="0" data-category="campus" />
-      <img src="Gallery_Images/Workshop photo1.jpg" alt="Workshop " tabindex="0" data-category="campus" />
-      <img src="Gallery_Images/CNC Machines.jpg" alt="CNC Machines" tabindex="0" data-category="campus" />
-      <img src="Gallery_Images/College Photo 1.jpg" alt="College " tabindex="0" data-category="campus" />
-      <img src="Gallery_Images/College Photo.jpg" alt="College " tabindex="0" data-category="campus" />
-      <img src="Gallery_Images/Lachars Photo.jpg" alt="Lectures " tabindex="0" data-category="campus" />
-      <img src="Gallery_Images/Teachers Photo1.jpg" alt="Lectures " tabindex="0" data-category="campus" />
-      <img src="Gallery_Images/Teachers Photo2.jpg" alt="Lectures " tabindex="0" data-category="campus" />
-      <img src="Gallery_Images/Appu Sir Birthday.jpg" alt="Lectures " tabindex="0" data-category="campus" />
-
-
-      <img src="Gallery_Images/Student Group Photo.jpg" alt="DTDM Students" tabindex="0" data-category="students" />
-      <!--<img src="" alt="Students Photos" tabindex="0" data-category="students" />
-    <img src="" alt="Students Photos" tabindex="0" data-category="students" />
-    <img src="" alt="Students Photos" tabindex="0" data-category="students" /> -->
-
-      <img src="Gallery_Images/College campus garden.jpg" alt="College campus garden" tabindex="0"
-        data-category="campus" />
-      <img src="Gallery_Images/College campus garden1.jpg" alt="College campus garden" tabindex="0"
-        data-category="campus" />
-
-      <!--
-    <img src="" alt="Students group study" tabindex="0" data-category="students" />
-    -->
-
-
+      <div class="gallery-item" data-category="campus">
+        <img src="Gallery_Images/College Photo 1.jpg" alt="College campus building" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="students">
+        <img src="Gallery_Images/Assembly photo.jpg" alt="Morning Assembly" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="students">
+        <img src="Gallery_Images/Assembly photo1.jpg" alt="Morning Assembly - Students Gathering" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="students">
+        <img src="Gallery_Images/Assembly photo2.jpg" alt="Morning Assembly - Principal's Address" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="events">
+        <img src="Gallery_Images/Cultural college event 5.jpg" alt="Annual Cultural Fest - Dance Performance" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="events">
+        <img src="Gallery_Images/Appu Sir Birthday.jpg" alt="Celebration at College Campus" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="events">
+        <img src="Gallery_Images/College events.jpg" alt="Inter-College Competition" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="events">
+        <img src="Gallery_Images/College festival event.JPG" alt="College Cultural Festival" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="events">
+        <img src="Gallery_Images/College festival event1.JPG" alt="Festival Decorations" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="events">
+        <img src="Gallery_Images/Cultural college event 6.jpg" alt="Students Performing" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="events">
+        <img src="Gallery_Images/Cultural college event 7.jpg" alt="Musical Event" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="events">
+        <img src="Gallery_Images/Cultural college event.jpg" alt="Group Performance" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="events">
+        <img src="Gallery_Images/Cultural college event1.jpg" alt="Stage Performance" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="events">
+        <img src="Gallery_Images/Cultural college event2.jpg" alt="Traditional Dance" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="events">
+        <img src="Gallery_Images/Cultural college event3.jpg" alt="Awards Ceremony" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="events">
+        <img src="Gallery_Images/Cultural college event4.jpg" alt="Drama Performance" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="campus">
+        <img src="Gallery_Images/College Main Door.jpg" alt="College Main Entrance" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="campus">
+        <img src="Gallery_Images/Workshop photo 2.jpg" alt="Mechanical Workshop" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="campus">
+        <img src="Gallery_Images/Workshop photo.jpg" alt="Workshop Machines" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="campus">
+        <img src="Gallery_Images/Workshop photo1.jpg" alt="Training Center Workshop" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="campus">
+        <img src="Gallery_Images/CNC Machines.jpg" alt="Advanced CNC Machine Center" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="campus">
+        <img src="Gallery_Images/College Photo.jpg" alt="Campus Overview" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="campus">
+        <img src="Gallery_Images/Lachars Photo.jpg" alt="Library and Study Hall" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="campus">
+        <img src="Gallery_Images/Teachers Photo1.jpg" alt="Computer Lab" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="campus">
+        <img src="Gallery_Images/Teachers Photo2.jpg" alt="Administrative Block" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="students">
+        <img src="Gallery_Images/Student Group Photo.jpg" alt="DTDM Batch of Students" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="campus">
+        <img src="Gallery_Images/College campus garden.jpg" alt="Lush Green Campus Garden" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
+      <div class="gallery-item" data-category="campus">
+        <img src="Gallery_Images/College campus garden1.jpg" alt="Garden Seating Area" tabindex="0" />
+        <div class="overlay"><i class="fas fa-search-plus zoom-icon"></i></div>
+      </div>
     </section>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox">
+    <div class="lightbox-content">
+      <button id="close-btn" aria-label="Close Lightbox"><i class="fas fa-times"></i></button>
+      <button class="nav-btn" id="prev-btn" aria-label="Previous Image"><i class="fas fa-chevron-left"></i></button>
+      <img id="lightbox-img" src="" alt="Full Screen View" />
+      <button class="nav-btn" id="next-btn" aria-label="Next Image"><i class="fas fa-chevron-right"></i></button>
+      <div id="caption"></div>
+    </div>
+  </div>
   </main>
 
   <!-- Footer -->
@@ -284,6 +514,105 @@
     </div>
   </footer>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const caption = document.getElementById('caption');
+      const closeBtn = document.getElementById('close-btn');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+
+      let currentIndex = 0;
+      let activeItems = [...galleryItems];
+
+      // Filtering Logic
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Update active button
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filter = btn.getAttribute('data-filter');
+
+          activeItems = [];
+          galleryItems.forEach(item => {
+            const category = item.getAttribute('data-category');
+            if (filter === 'all' || category === filter) {
+              item.style.display = 'inline-block';
+              activeItems.push(item);
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Lightbox Logic
+      galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+          currentIndex = activeItems.indexOf(item);
+          openLightbox(item);
+        });
+      });
+
+      function openLightbox(item) {
+        const img = item.querySelector('img');
+        lightboxImg.src = img.src;
+        caption.textContent = img.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+
+      function showNext() {
+        currentIndex = (currentIndex + 1) % activeItems.length;
+        updateLightboxSource();
+      }
+
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + activeItems.length) % activeItems.length;
+        updateLightboxSource();
+      }
+
+      function updateLightboxSource() {
+        const nextItem = activeItems[currentIndex];
+        const nextImg = nextItem.querySelector('img');
+        lightboxImg.style.transform = 'scale(0.9)';
+        lightboxImg.style.opacity = '0';
+        
+        setTimeout(() => {
+          lightboxImg.src = nextImg.src;
+          caption.textContent = nextImg.alt;
+          lightboxImg.style.transform = 'scale(1)';
+          lightboxImg.style.opacity = '1';
+        }, 150);
+      }
+
+      closeBtn.addEventListener('click', closeLightbox);
+      nextBtn.addEventListener('click', showNext);
+      prevBtn.addEventListener('click', showPrev);
+
+      // Close on background click
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      // Keyboard Navigation
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+      });
+    });
+  </script>
   <script src="../js/main.js"></script>
 </body>
 
