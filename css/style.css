@@ -306,7 +306,7 @@ a {
         display: none;
         flex-direction: column;
         padding: 0;
-        background: rgba(0, 51, 102, 0.98);
+        background: var(--primary-color);
         width: 100%;
     }
 
@@ -347,4 +347,112 @@ a {
     .contact-info p {
         justify-content: center;
     }
+}
+
+/* Government Specific Official Components */
+.gov-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: #fff;
+    border: 1px solid #dee2e6;
+}
+
+.gov-table th {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    border: 1px solid #002244;
+}
+
+.gov-table td {
+    padding: 12px 15px;
+    border: 1px solid #dee2e6;
+    color: #444;
+}
+
+.gov-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.gov-table tr:hover {
+    background-color: #f2f2f2;
+}
+
+.hod-plaque {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-top: 5px solid var(--primary-color);
+    padding: 30px;
+    margin: 20px 0;
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.hod-plaque img {
+    width: 180px;
+    height: 220px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background: #fff;
+}
+
+.hod-plaque .message-text {
+    flex: 1;
+}
+
+.hod-plaque h3 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.hod-plaque .designation {
+    color: var(--accent-color);
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.section-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.section-card h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.sidebar-nav-v2 {
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.sidebar-nav-v2 a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-bottom: 1px solid #efefef;
+    color: var(--text-color);
+    transition: all 0.2s;
+}
+
+.sidebar-nav-v2 a:hover, 
+.sidebar-nav-v2 a.active {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.sidebar-nav-v2 a i {
+    width: 20px;
 }

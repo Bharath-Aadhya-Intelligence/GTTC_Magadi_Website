@@ -19,195 +19,48 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-        /* Department Specific Styles */
-        .social-sidebar {
-            position: fixed;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-radius: 0 5px 5px 0;
-        }
-
-        .social-link.facebook {
-            background: #3b5998;
-        }
-
-        .social-link.instagram {
-            background: #e4405f;
-        }
-
-        .social-link.twitter {
-            background: #1da1f2;
-        }
-
-        .social-link.linkedin {
-            background: #0077b5;
-        }
-
-        .social-link.youtube {
-            background: #ff0000;
-        }
-
-        .social-link.whatsapp {
-            background: #25d366;
-        }
-
-        .social-link:hover {
-            transform: translateX(5px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 45vh;
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Local Override for Hero - No Gradients */
+        .hero-v2 {
+            background-color: var(--primary-color);
+            padding: 60px 0;
+            color: #fff;
             text-align: center;
-            color: white;
             position: relative;
-            overflow: hidden;
         }
 
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://images.pexels.com/photos/574077/pexels-photo-574077.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080') center/cover;
-            opacity: 0.3;
-            z-index: -1;
+        .hero-v2 h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
         }
 
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+        .breadcrumb-v2 {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.8);
         }
 
-        .cursor {
-            animation: blink 1s infinite;
-            color: #f97316;
+        .breadcrumb-v2 a {
+            color: var(--secondary-color);
         }
 
-        @keyframes blink {
-
-            0%,
-            50% {
-                opacity: 1;
-            }
-
-            51%,
-            100% {
-                opacity: 0;
-            }
-        }
-
-        /* Sidebar & Content */
-
-        .sidebar-item {
-            display: flex;
-            align-items: center;
-            padding: 1rem 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .sidebar-item.active,
-        .sidebar-item:hover {
-            background: #f97316;
-            color: white;
-        }
-
-        .sidebar-item.active i,
-        .sidebar-item:hover i {
-            color: white;
-        }
-
-        /* Section Specifics */
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #f97316;
-        }
-
-        .hod-profile {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            align-items: flex-start;
-        }
-
-        .hod-image {
-            width: 200px;
-            height: 250px;
-            border-radius: 10px;
-            object-fit: cover;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .faculty-card {
-            background: #f8fafc;
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .faculty-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .faculty-image {
-            width: 120px;
-            height: 150px;
-            border-radius: 8px;
-            object-fit: cover;
-            margin: 0 auto 1rem;
-            display: block;
-        }
-
-        .contact-container {
+        .dept-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 2rem;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+            margin: 40px 0;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+        @media (max-width: 992px) {
+            .dept-layout {
+                grid-template-columns: 1fr;
             }
+        }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .sidebar-sticky {
+            position: sticky;
+            top: 100px;
         }
     </style>
 </head>
@@ -220,9 +73,9 @@
             <a href="#">ಕನ್ನಡ</a>
         </div>
         <div class="right-controls">
-            <span class="btn-acc" id="font-decrease">A-</span>
-            <span class="btn-acc" id="font-reset">A</span>
-            <span class="btn-acc" id="font-increase">A+</span>
+            <span class="btn-acc" id="font-decrease" title="Decrease Font Size">A-</span>
+            <span class="btn-acc" id="font-reset" title="Reset Font Size">A</span>
+            <span class="btn-acc" id="font-increase" title="Increase Font Size">A+</span>
             <a href="#main-content" style="margin-left: 10px;">Skip to Main Content</a>
         </div>
     </div>
@@ -275,430 +128,139 @@
         </ul>
     </nav>
 
-    <main id="main-content">
-
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-background"></div>
-            <div class="hero-content">
-                <div class="breadcrumb">
-                    <a href="index.html" style="text-decoration: none; color: aliceblue;"><span>Home</span></a> >
-                    <span>Artificial Intelligence and Machine Learning</span>
-                </div>
-                <h1 class="hero-title">
-                    <span class="typing-text">Artificial Intelligence and Machine Learning</span>
-                    <span class="cursor">|</span>
-                </h1>
+    <div class="hero-v2">
+        <div class="container">
+            <div class="breadcrumb-v2">
+                <a href="index.html">Home</a> > Academics > <span style="color: #fff;">AI & Machine Learning</span>
             </div>
-        </section>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="container">
-                <div class="content-wrapper">
-                    <!-- Sidebar Navigation -->
-                    <aside class="sidebar">
-                        <div class="sidebar-menu">
-                            <div class="sidebar-item active" data-section="home">
-                                <i class="fas fa-home"></i>
-                                <span>Home</span>
-                            </div>
-
-
-                            <div class="sidebar-item" data-section="hod">
-                                <i class="fas fa-user-tie"></i>
-                                <span>HoD</span>
-                            </div>
-                            <div class="sidebar-item" data-section="faculty">
-                                <i class="fas fa-users"></i>
-                                <span>Faculty</span>
-                            </div>
-
-                            <div class="sidebar-item" data-section="achievements">
-                                <i class="fas fa-trophy"></i>
-                                <span>Achievements</span>
-                            </div>
-
-
-                            <div class="sidebar-item" data-section="laboratories">
-                                <i class="fas fa-flask"></i>
-                                <span>Laboratories</span>
-                            </div>
-                            <div class="sidebar-item" data-section="certificates">
-                                <i class="fas fa-certificate"></i>
-                                <span>Certificate Courses</span>
-                            </div>
-                            <div class="sidebar-item" data-section="placements">
-                                <i class="fas fa-briefcase"></i>
-                                <span>Placements</span>
-                            </div>
-
-                            <div class="sidebar-item" data-section="contact">
-                                <i class="fas fa-phone"></i>
-                                <span>Contact</span>
-                            </div>
-
-                        </div>
-                    </aside>
-
-                    <!-- Main Content Area -->
-                    <div class="content-area">
-                        <div class="content-card" id="contentCard">
-                            <!-- Content will be dynamically loaded here -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <script>
-            // Navigation functionality
-            document.addEventListener('DOMContentLoaded', function () {
-                const sidebarItems = document.querySelectorAll('.sidebar-item');
-
-                // Sidebar navigation
-                sidebarItems.forEach(item => {
-                    item.addEventListener('click', function () {
-                        sidebarItems.forEach(el => el.classList.remove('active'));
-                        this.classList.add('active');
-
-                        // Animate content change
-                        const contentArea = document.querySelector('.content-area');
-                        contentArea.style.opacity = '0';
-                        contentArea.style.transform = 'translateY(20px)';
-
-                        setTimeout(() => {
-                            const section = this.getAttribute('data-section');
-                            updateContent(section);
-                            contentArea.style.opacity = '1';
-                            contentArea.style.transform = 'translateY(0)';
-                        }, 300);
-                    });
-                });
-
-                // Initialize with home content
-                updateContent('home');
-
-                // Typing animation
-                const typingText = document.querySelector('.typing-text');
-                const text = 'Artificial Intelligence and Machine Learning';
-                let index = 0;
-
-                function typeText() {
-                    if (index < text.length) {
-                        typingText.textContent = text.substring(0, index + 1);
-                        index++;
-                        setTimeout(typeText, 100);
-                    }
-                }
-
-                // Start typing animation after page load
-                setTimeout(typeText, 1000);
-
-                // Intersection Observer for fade-in animations
-                const observerOptions = {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -50px 0px'
-                };
-
-                const observer = new IntersectionObserver(function (entries) {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.style.opacity = '1';
-                            entry.target.style.transform = 'translateY(0)';
-                        }
-                    });
-                }, observerOptions);
-
-                // Social media links hover effect
-                document.querySelectorAll('.social-link').forEach(link => {
-                    link.addEventListener('mouseenter', function () {
-                        this.style.transform = 'translateX(5px) scale(1.1)';
-                    });
-
-                    link.addEventListener('mouseleave', function () {
-                        this.style.transform = 'translateX(0) scale(1)';
-                    });
-                });
-            });
-
-            // Function to update content based on sidebar selection
-            function updateContent(section) {
-                const contentCard = document.querySelector('#contentCard');
-                const content = getContentForSection(section);
-                contentCard.innerHTML = content;
-
-                // Re-observe new content for animations
-                setTimeout(() => {
-                    document.querySelectorAll('.content-paragraph, .faculty-card').forEach(element => {
-                        element.style.opacity = '0';
-                        element.style.transform = 'translateY(20px)';
-                        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-
-                        setTimeout(() => {
-                            element.style.opacity = '1';
-                            element.style.transform = 'translateY(0)';
-                        }, 100);
-                    });
-                }, 100);
-
-                // Add form submission handler for contact form
-                if (section === 'contact') {
-                    const contactForm = document.querySelector('#contactForm');
-                    if (contactForm) {
-                        contactForm.addEventListener('submit', function (e) {
-                            e.preventDefault();
-                            alert('Thank you for your message! We will get back to you soon.');
-                            this.reset();
-                        });
-                    }
-                }
-            }
-
-            // Content data for different sections
-            function getContentForSection(section) {
-                const contentData = {
-                    'home': `
-            
-
-    <div class="container">
-        <div class="section">
-            <h2 class="section-title">Introduction</h2>
-            <p>The Diploma in Artificial Intelligence and Machine Learning (DAIML) is designed to provide students with a solid foundation in AI and ML concepts, techniques, and tools. This program equips students with the necessary knowledge and practical skills required to implement AI and ML algorithms in real-world applications, which are becoming increasingly important across industries such as finance, healthcare, technology, and retail.</p>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Job Placement Opportunities</h2>
-            <p>Graduates of the DAIML program can explore a wide range of career opportunities in various sectors. Some of the common job roles and industries include:</p>
-            <ul>
-                <li>AI Engineer</li>
-                <li>Machine Learning Engineer</li>
-                <li>Data Scientist</li>
-                <li>Natural Language Processing (NLP) Specialist</li>
-                <li>Robotics Engineer</li>
-                <li>AI Research Scientist</li>
-                <li>Software Developer specializing in AI/ML</li>
-                <li>AI Consultant in industries like finance, healthcare, and retail</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">Salary Expectations</h2>
-            <p>Salaries for graduates with a diploma in AI and ML vary based on the job role, experience, and location. On average, the salary ranges are as follows:</p>
-            <ul>
-		<li><strong>Implynt Training:</strong> ₹15,000 to ₹20,000 per month</li>
-                <li><strong>Entry-Level Positions:</strong> ₹4,00,000 to ₹8,00,000 per annum</li>
-                <li><strong>Mid-Level Positions:</strong> ₹8,00,000 to ₹15,00,000 per annum</li>
-                <li><strong>Experienced Professionals:</strong> ₹15,00,000 to ₹25,00,000 per annum or higher</li>
-            </ul>
+            <h1>Diploma in Artificial Intelligence and Machine Learning (DAIML)</h1>
         </div>
     </div>
 
-        `,
+    <main id="main-content" class="container">
+        <div class="dept-layout">
+            <!-- Left Sidebar Navigation -->
+            <aside class="sidebar-sticky">
+                <div class="sidebar-nav-v2">
+                    <a href="#about" class="active"><i class="fas fa-info-circle"></i> About Department</a>
+                    <a href="#hod"><i class="fas fa-user-tie"></i> HOD Message</a>
+                    <a href="#faculty"><i class="fas fa-users"></i> Faculty Members</a>
+                    <a href="#labs"><i class="fas fa-microchip"></i> Laboratories</a>
+                    <a href="#placements"><i class="fas fa-briefcase"></i> Placements</a>
+                </div>
+            </aside>
 
-                    'hod': `
-            <h2 class="section-title">Head of Department</h2>
-            <div class="department-content">
-                <div class="hod-profile">
-                    <img src="Main_Page_Images/avatar_placeholder.png" alt="Mr. Nikhil B M" class="hod-image">
-                    <div class="hod-details">
-                        <h3>Mr. Nikhil B M</h3>
-                        <p class="position">HOD of DAIML</p>
-                        <div class="contact-info">
-                            <p><i class="fas fa-phone"></i> +91 6363784679</p>
-                            <p><i class="fas fa-envelope"> </i>nikhilbongale156@gmail.com</p>
+            <!-- Right Content Area -->
+            <div class="dept-content">
+                <!-- About Section -->
+                <section id="about" class="section-card">
+                    <h2>About the Department</h2>
+                    <p>The <strong>Diploma in Artificial Intelligence and Machine Learning (DAIML)</strong> is designed to provide students with a solid foundation in modern computational intelligence. The program covers essential concepts, techniques, and tools needed to build "smart" systems that can learn from data.</p>
+                    <br>
+                    <p>In the digital age, AI and ML are transforming sectors from healthcare to finance. At GTTC Magadi, we focus on equipping students with practical skills in data processing, algorithm implementation, and real-world AI applications, ensuring they are ready for the future of technology.</p>
+                </section>
+
+                <!-- HOD Section -->
+                <section id="hod" class="section-card">
+                    <h2>HOD Message</h2>
+                    <div class="hod-plaque">
+                        <img src="Main_Page_Images/avatar_placeholder.png" alt="Mr. Nikhil B M">
+                        <div class="message-text">
+                            <h3>Mr. Nikhil B M</h3>
+                            <span class="designation">Head of Department, DAIML</span>
+                            <p><em>"Data is the new oil, and AI is the engine that processes it. My goal is to foster an environment where students don't just learn to code, but learn to think algorithmically. Born in 2000, I believe in a future where technology serves humanity through intelligent automation."</em></p>
+                            <br>
+                            <p>Qualification: BE</p>
+                            <p>Contact: +91 6363784679 | nikhilbongale156@gmail.com</p>
                         </div>
                     </div>
-                </div>
-                <div class="hod-message">
-                    <h4>HoD Message</h4>
-                    <p class="content-paragraph">
-                        Mr. Nikhil B M, the Head of the Department (HOD) of DAIML, is a young and dynamic educator known for his passion for teaching and innovation. He holds a Bachelor of Engineering (BE) degree, reflecting his strong technical knowledge and dedication to the field. Born on 5th August 2000, he brings energy, enthusiasm, and modern learning approaches to his department. His supportive nature and guidance help students gain both theoretical and practical understanding of Artificial Intelligence and Machine Learning. Under his leadership, the DAIML department continues to grow and achieve academic excellence.
-                    </p>
-                </div>
-            </div>
-        `,
-                    'faculty': `
-            <h2 class="section-title">Faculty Members</h2>
-            <div class="department-content">
-                <p class="content-paragraph">
-                    The Department of Computer Science and Engineering is proud to have a team of highly qualified and experienced faculty members who are committed to providing excellent education and mentorship to our students.
-                </p>
-                <div class="faculty-grid">
-                    <div class="faculty-card">
-                        <img src="Main_Page_Images/avatar_placeholder.png" alt="Dr. S SAI" class="faculty-image">
-                        <h4>Dr. S SAI SATYANARAYANA</h4>
-                        <p class="position">HoD & Associate Professor</p>
-                        <p class="email">satyanarayana.s@kgr.ac.in</p>
-                    </div>
-                    <div class="faculty-card">
-                        <img src="Main_Page_Images/avatar_placeholder.png" alt="Dr. Raghu Kumar L" class="faculty-image">
-                        <h4>Dr. Raghu Kumar L</h4>
-                        <p class="position">Associate Professor</p>
-                        <p class="email">drraghukumar@kgr.ac.in</p>
-                    </div>
-                    <div class="faculty-card">
-                        <img src="Main_Page_Images/avatar_placeholder.png" alt="Dr. Shiva Shankar" class="faculty-image">
-                        <h4>Dr. Shiva Shankar Subramanian</h4>
-                        <p class="position">Associate Professor</p>
-                        <p class="email">drshivashankar@kgr.ac.in</p>
-                    </div>
-                    <div class="faculty-card">
-                        <img src="Main_Page_Images/avatar_placeholder.png" alt="Dr. B Hari Krishna" class="faculty-image">
-                        <h4>Dr. B Hari Krishna</h4>
-                        <p class="position">Associate Professor</p>
-                        <p class="email">harkrishna@kgr.ac.in</p>
-                    </div>
-                    <div class="faculty-card">
-                        <img src="Main_Page_Images/avatar_placeholder.png" alt="Dr. T V V Pavan Kumar" class="faculty-image">
-                        <h4>Dr. T V V Pavan Kumar</h4>
-                        <p class="position">Professor</p>
-                        <p class="email">tvvpavan@kgr.ac.in</p>
-                    </div>
-                    <div class="faculty-card">
-                        <img src="Main_Page_Images/avatar_placeholder.png" alt="Dr. Srinivas Mekala" class="faculty-image">
-                        <h4>Dr. Srinivas Mekala</h4>
-                        <p class="position">Associate Professor</p>
-                        <p class="email">srinivasmekala@kgr.ac.in</p>
-                    </div>
-                    <div class="faculty-card">
-                        <img src="Main_Page_Images/avatar_placeholder.png" alt="Dr. Athak Ahmed N A" class="faculty-image">
-                        <h4>Dr. Athak Ahmed N A</h4>
-                        <p class="position">Associate Professor</p>
-                        <p class="email">athakahmed@kgr.ac.in</p>
-                    </div>
-                    <div class="faculty-card">
-                        <img src="Main_Page_Images/avatar_placeholder.png" alt="Dr. Surendra Tripathi" class="faculty-image">
-                        <h4>Dr. Surendra Tripathi</h4>
-                        <p class="position">Assistant Professor</p>
-                        <p class="email">surendratripathi@kgr.ac.in</p>
-                    </div>
-                    <div class="faculty-card">
-                        <img src="Main_Page_Images/avatar_placeholder.png" alt="Mrs. K Sapana Rani" class="faculty-image">
-                        <h4>Mrs. K Sapana Rani</h4>
-                        <p class="position">Assistant Professor</p>
-                        <p class="email">sapanarani@kgr.ac.in</p>
-                    </div>
-                    <div class="faculty-card">
-                        <img src="Main_Page_Images/avatar_placeholder.png" alt="Mr. K Sai Krishna" class="faculty-image">
-                        <h4>Mr. K Sai Krishna</h4>
-                        <p class="position">Assistant Professor</p>
-                        <p class="email">saikrishna@kgr.ac.in</p>
-                    </div>
-                    <div class="faculty-card">
-                        <img src="Main_Page_Images/avatar_placeholder.png" alt="Mr. Ahmed Mohiuddin" class="faculty-image">
-                        <h4>Mr. Ahmed Mohiuddin</h4>
-                        <p class="position">Assistant Professor</p>
-                        <p class="email">ahmedmohiuddin@kgr.ac.in</p>
-                    </div>
-                    <div class="faculty-card">
-                        <img src="Main_Page_Images/avatar_placeholder.png" alt="Ms. Nasra Fatima" class="faculty-image">
-                        <h4>Ms. Nasra Fatima</h4>
-                        <p class="position">Assistant Professor</p>
-                        <p class="email">nasrafatima@kgr.ac.in</p>
-                    </div>
-                </div>
-            </div>
-        `,
-                    'contact': `
-            <h2 class="section-title">Contact Us</h2>
-            <div class="department-content">
-                <div class="contact-container">
-                    <div class="contact-form">
-                        <h3 style="color: #1f2937; margin-bottom: 1.5rem;">Send us a Message</h3>
-                        <form id="contactForm">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input type="tel" id="phone" name="phone">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" required></textarea>
-                            </div>
-                            <button type="submit" class="submit-btn">Send Your Message</button>
-                        </form>
-                    </div>
-                    <div class="contact-info-section">
-                        <h4>Get in Touch</h4>
-                        <div class="contact-item">
-                            <h5>Department Office</h5>
-                            <p><i class="fas fa-map-marker-alt"></i> Computer Science & Engineering Department</p>
-                            <p>KG Reddy College of Engineering & Technology</p>
-                            <p>Hyderabad, Telangana, India</p>
-                        </div>
-                        <div class="contact-item">
-                            <h5>Head of Department</h5>
-                            <p><i class="fas fa-user"></i> Dr. Raghu Kumar L</p>
-                            <p><i class="fas fa-phone"></i> +91 9490244991</p>
-                            <p><i class="fas fa-envelope"></i> hod.cse@kgr.ac.in</p>
-                        </div>
-                        <div class="contact-item">
-                            <h5>Office Hours</h5>
-                            <p><i class="fas fa-clock"></i> Monday - Friday: 9:00 AM - 5:00 PM</p>
-                            <p><i class="fas fa-clock"></i> Saturday: 9:00 AM - 1:00 PM</p>
-                            <p><i class="fas fa-clock"></i> Sunday: Closed</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `,
-                    'laboratories': `
-            <h2 class="section-title">Laboratories</h2>
-            <div class="department-content">
-                <p class="content-paragraph">
-                    The Computer Science and Engineering department is equipped with state-of-the-art laboratories that provide hands-on experience to students in various domains of computer science.
-                </p>
-                <p class="content-paragraph">
-                    <strong>Programming Laboratory:</strong> Equipped with high-end computers and latest software development tools for programming in various languages including C, C++, Java, Python, and more.
-                </p>
-                <p class="content-paragraph">
-                    <strong>Data Structures and Algorithms Lab:</strong> Dedicated facility for implementing and analyzing various data structures and algorithms with performance optimization tools.
-                </p>
-                <p class="content-paragraph">
-                    <strong>Database Management Systems Lab:</strong> Features industry-standard database servers and tools for learning SQL, NoSQL, and database design principles.
-                </p>
-                <p class="content-paragraph">
-                    <strong>Network and Security Lab:</strong> Advanced networking equipment and security tools for understanding network protocols, cybersecurity, and system administration.
-                </p>
-                <p class="content-paragraph">
-                    <strong>Machine Learning and AI Lab:</strong> High-performance computing systems with GPU acceleration for machine learning, deep learning, and artificial intelligence projects.
-                </p>
-            </div>
-        `
-                };
+                </section>
 
-                return contentData[section] || contentData['home'];
-            }
+                <!-- Faculty Table -->
+                <section id="faculty" class="section-card">
+                    <h2>Faculty Members</h2>
+                    <table class="gov-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Designation</th>
+                                <th>Qualification</th>
+                                <th>Expertise</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mr. Nikhil B M</td>
+                                <td>HOD & Lecturer</td>
+                                <td>BE</td>
+                                <td>Machine Learning, Python</td>
+                            </tr>
+                            <tr>
+                                <td>Staff Member 1</td>
+                                <td>Lecturer</td>
+                                <td>M.Tech</td>
+                                <td>Deep Learning, Data Science</td>
+                            </tr>
+                            <tr>
+                                <td>Staff Member 2</td>
+                                <td>Instructor</td>
+                                <td>BE</td>
+                                <td>AI Programming & Lab</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
 
-            // Performance optimization: Debounce scroll events
-            function debounce(func, wait) {
-                let timeout;
-                return function executedFunction(...args) {
-                    const later = () => {
-                        clearTimeout(timeout);
-                        func(...args);
-                    };
-                    clearTimeout(timeout);
-                    timeout = setTimeout(later, wait);
-                };
-            }
+                <!-- Labs Section -->
+                <section id="labs" class="section-card">
+                    <h2>Infrastructure & Laboratories</h2>
+                    <p>The DAIML department features advanced computing facilities for data-intensive training:</p>
+                    <br>
+                    <ul style="list-style: none; padding-left: 20px;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> <strong>AI & Computing Lab:</strong> High-performance workstations with GPU acceleration.</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> <strong>Data Science Lab:</strong> Specialized software for statistical analysis and big data processing.</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> <strong>Programming Lab:</strong> Dedicated environment for Python, R, and Java development.</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> <strong>IoT & Robotics Lab:</strong> Integrating AI with physical sensors and automated devices.</li>
+                    </ul>
+                </section>
 
-            // Preloader functionality
-            window.addEventListener('load', function () {
-                document.body.classList.add('loaded');
-            });
-        </script>
+                <!-- Placements Section -->
+                <section id="placements" class="section-card">
+                    <h2>Job Placement & Careers</h2>
+                    <p>AI/ML specialists are among the most in-demand professionals globally:</p>
+                    <br>
+                    <table class="gov-table">
+                        <thead>
+                            <tr>
+                                <th>Industry Sector</th>
+                                <th>Top Recruiters</th>
+                                <th>Typical Salary (Entry)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Technology</td>
+                                <td>Google, Microsoft, IBM</td>
+                                <td>₹6,00,000 - ₹10,00,000 pa</td>
+                            </tr>
+                            <tr>
+                                <td>Finance & Fintech</td>
+                                <td>Goldman Sachs, HDFC, Paytm</td>
+                                <td>₹5,00,000 - ₹9,00,000 pa</td>
+                            </tr>
+                            <tr>
+                                <td>Healthcare AI</td>
+                                <td>Siemens Healthineers, Philips</td>
+                                <td>₹4,50,000 - ₹8,00,000 pa</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
     </main>
 
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -730,6 +292,28 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Simple scroll spy logic
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.sidebar-nav-v2 a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 120) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === `#${current}`) {
+                    a.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
