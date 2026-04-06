@@ -32,8 +32,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainNav = document.querySelector('.main-nav');
 
     if (navToggle) {
-        navToggle.addEventListener('click', () => {
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             mainNav.classList.toggle('active');
         });
     }
+
+    // Dropdown Toggles for Mobile
+    const navLinks = document.querySelectorAll('.main-nav ul li > a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                const nextUl = link.nextElementSibling;
+                if (nextUl && nextUl.tagName === 'UL') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    nextUl.style.display = nextUl.style.display === 'block' ? 'none' : 'block';
+                    
+                    // Toggle chevron icon if exists
+                    const icon = link.querySelector('.fa-chevron-down');
+                    if (icon) {
+                        icon.style.transform = nextUl.style.display === 'block' ? 'rotate(180deg)' : 'rotate(0)';
+                    }
+                }
+            }
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (mainNav && mainNav.classList.contains('active')) {
+            if (!mainNav.contains(e.target) && e.target !== navToggle) {
+                mainNav.classList.remove('active');
+            }
+        }
+    });
 });
